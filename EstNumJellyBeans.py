@@ -45,9 +45,10 @@ class NumJellyEstimator:
     def set_world_pop(self, people):
 
         # NE24: Add a test for type here
+        assert type(people) is int, "Error: world population of people must be an integer."
  
         # NE24: Add a test for value here
-
+        assert people > 0, "Error: there are no people in this population."
         # Store the fraction.
         self.worldPop = people
 
@@ -56,9 +57,10 @@ class NumJellyEstimator:
     def set_frac_ppl_loving_pink(self, frac):
 
         # NE24: Add a test for type here
-
+        assert type(frac) is float, "Error: fraction of people who love the color pink must be a float."
         # NE24: Add a test for value here
-
+        if frac == 0:
+        	print("There are no people that love pink.")
         # Store the fraction.
         self.fracPplLovingPink = frac
 
@@ -94,6 +96,10 @@ class NumJellyEstimator:
                   +"computing estimate.\n"
 
         # NE24: What other checks might be useful? What is a better way to do this?
+        '''We could use try and raise and exception error. We could say try n and if n/
+        is not true we could raise an exception error that states the error above./
+        Additionally we could also try asserting that n exists. If n exists nothing/
+        would happen, but if it didn't we could raise the error shown above.'''
 
         return int(n)
 
